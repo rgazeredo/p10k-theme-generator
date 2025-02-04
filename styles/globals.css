@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'MesloLGS NF';
+  src: url('/fonts/MesloLGS NF Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.terminal-preview {
+  font-family: 'MesloLGS NF', monospace;
+}
