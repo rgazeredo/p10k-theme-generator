@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Below is the updated README in English with the "Getting Started" section removed and a quick guide on how to contribute added:
 
-## Getting Started
+---
 
-First, run the development server:
+# p10k-theme-generator
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+p10k-theme-generator is an open source tool for generating customized themes for [Powerlevel10k](https://github.com/romkatv/powerlevel10k). Currently, the project offers a set of color configurations, but Powerlevel10k provides many additional customization options to explore.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Customizable Colors:** Easily adjust color schemes to match your style.
+- **Simple Interface:** Use an intuitive web interface to generate your configuration.
+- **Open Source:** Maintained by the community and open to contributions.
+- **Powerlevel10k Compatible:** Designed specifically for seamless integration with Powerlevel10k.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Live Demo
 
-## Learn More
+Experience the generator live at: [p10k-theme-generator.vercel.app](https://p10k-theme-generator.vercel.app/)
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Access the live demo or run the project locally.
+2. Customize your color options using the provided interface.
+3. Copy the generated configuration.
+4. Apply it to your Powerlevel10k configuration to update your theme.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How to Contribute
 
-## Deploy on Vercel
+We welcome contributions from the community! To help improve p10k-theme-generator, please follow these simple steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Fork the Repository:** Click on the "Fork" button on GitHub to create your own copy.
+2. **Clone Your Fork:** Clone the repository to your local machine.
+   ```bash
+   git clone https://github.com/your-username/p10k-theme-generator.git
+   ```
+3. **Create a Branch:** Create a new branch for your feature or fix.
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. **Implement Your Changes:** Make your improvements or add new features.
+5. **Test Your Changes:** Ensure that your contributions work as expected.
+6. **Submit a Pull Request:** Push your branch and open a pull request. Please reference any related issues to help us understand your changes.
+7. **Join the Discussion:** If you have ideas or need help, feel free to open an issue or join our community discussions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/rgazeredo/p10k-theme-generator/blob/main/LICENSE) file for more details.
+
+## Acknowledgements
+
+Special thanks to the [Powerlevel10k](https://github.com/romkatv/powerlevel10k) community for inspiring projects like this and for continuously enhancing the terminal experience for everyone.

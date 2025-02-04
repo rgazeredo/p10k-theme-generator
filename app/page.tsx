@@ -39,7 +39,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 px-8 pt-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-white mb-8">Powerlevel10k Theme Generator</h1>
+        <h1 className="text-3xl font-bold text-white mb-4">Powerlevel10k Theme Generator</h1>
+
+        <p className="text-gray-300 font-semibold mb-4">This is an open source project designed to help you customize your Powerlevel10k experience. It currently offers a selection of color configurations for Powerlevel10k, though many additional settings are available to explore. Contributions from the community are always welcome.</p>
+        <p className="text-gray-300 font-semibold mb-4">For more details or to contribute, please visit the GitHub repository: <a className="text-sky-300" href="https://github.com/rgazeredo/p10k-theme-generator" target="_blank">rgazeredo/p10k-theme-generator</a></p>
 
         <Terminal segments={segments} />
 
