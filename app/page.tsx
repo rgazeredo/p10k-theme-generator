@@ -8,9 +8,6 @@ export default function Home() {
   const [segments, setSegments] = useState<SegmentConfig[]>(defaultSegments);
 
   const updateSegment = (index: number, newSegment: SegmentConfig) => {
-
-    console.log(newSegment);
-
     const newSegments = [...segments];
     newSegments[index] = newSegment;
     setSegments(newSegments);

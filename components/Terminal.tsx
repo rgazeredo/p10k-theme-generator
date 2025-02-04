@@ -1,22 +1,22 @@
+import React from 'react';
 import { FaApple, FaCodeBranch, FaFolderOpen, FaGithubAlt, FaHourglassEnd, FaRegClock } from 'react-icons/fa';
 
 import { SegmentConfig } from '../types/config';
-import React from 'react';
 
 export default function Terminal({ segments }: { segments: SegmentConfig[] }) {
   const leftSegments = segments.filter(s => s.position === 'left');
   const rightSegments = segments.filter(s => s.position === 'right');
 
-  const vcsColor = [
-    '#000205',
-    '#DC7278',
-    '#94B165',
-    '#FEB44E',
-    '#51BBF6',
-    '#F9ED96',
-    '#8FE2C5',
-    '#D0C5C3',
-  ];
+  const vcsColor: Record<string, string> = {
+    '0': '#000205',
+    '1': '#DC7278',
+    '2': '#94B165',
+    '3': '#FEB44E',
+    '4': '#51BBF6',
+    '5': '#F9ED96',
+    '6': '#8FE2C5',
+    '7': '#D0C5C3',
+  };
 
 
   const renderLeftSeparator = (bgColor: string) => (
@@ -108,7 +108,9 @@ export default function Terminal({ segments }: { segments: SegmentConfig[] }) {
     <>
       <span
         style={{
-          color: segment.variable.includes('VCS_') ? vcsColor[segment.fg] : segment.fg,
+          color: segment.variable.includes('VCS_')
+            ? vcsColor[segment.fg as keyof typeof vcsColor]
+            : segment.fg,
           backgroundColor: segment.bg,
           padding: i == 0 ? '2px 8px' : '2px 8px 2px 20px',
           height: '26px',
