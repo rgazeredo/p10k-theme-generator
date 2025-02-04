@@ -19,7 +19,7 @@ export default function Home() {
   const configCode = segments
     .map(segment => {
 
-      let BACKGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_BACKGROUND="${segment.bg}"`;
+      const BACKGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_BACKGROUND="${segment.bg}"`;
       let FOREGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_FOREGROUND="${segment.fg}"`;
 
       if (segment.variable.includes('VCS_')) {
