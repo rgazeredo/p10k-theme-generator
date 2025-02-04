@@ -7,17 +7,6 @@ export default function Terminal({ segments }: { segments: SegmentConfig[] }) {
   const leftSegments = segments.filter(s => s.position === 'left');
   const rightSegments = segments.filter(s => s.position === 'right');
 
-  const vcsColor: Record<string, string> = {
-    '0': '#000205',
-    '1': '#DC7278',
-    '2': '#94B165',
-    '3': '#FEB44E',
-    '4': '#51BBF6',
-    '5': '#F9ED96',
-    '6': '#8FE2C5',
-    '7': '#D0C5C3',
-  };
-
 
   const renderLeftSeparator = (bgColor: string) => (
     <div
@@ -108,10 +97,8 @@ export default function Terminal({ segments }: { segments: SegmentConfig[] }) {
     <>
       <span
         style={{
-          color: segment.variable.includes('VCS_')
-            ? vcsColor[segment.fg as keyof typeof vcsColor]
-            : segment.fg,
-          backgroundColor: segment.bg,
+          color: segment.fgHex,
+          backgroundColor: segment.bgHex,
           padding: i == 0 ? '2px 8px' : '2px 8px 2px 20px',
           height: '26px',
           display: 'flex',
@@ -121,17 +108,17 @@ export default function Terminal({ segments }: { segments: SegmentConfig[] }) {
         {segment.icon && renderIcon(segment.icon)}
         {segment.content && <span className='ml-2'>{segment.content}</span>}
       </span>
-      {renderLeftSeparator(segment.bg)}
+      {renderLeftSeparator(segment.bgHex)}
     </>
   )
 
   const renderRightSegment = (segment: SegmentConfig, i: number) => (
     <>
-      {renderRightSeparator(segment.bg)}
+      {renderRightSeparator(segment.bgHex)}
       <span
         style={{
-          color: segment.fg,
-          backgroundColor: segment.bg,
+          color: segment.fgHex,
+          backgroundColor: segment.bgHex,
           padding: i == 0 ? '2px 20px 2px 13px' : '2px 8px 2px 20px',
           height: '26px',
           display: 'flex',

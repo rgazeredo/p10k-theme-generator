@@ -2,12 +2,16 @@
 
 import { useState } from 'react';
 import Terminal from '../components/Terminal';
+import ColorPickerModal from '../components/ColorPickerModal';
 import { SegmentConfig, defaultSegments } from '../types/config';
 
 export default function Home() {
   const [segments, setSegments] = useState<SegmentConfig[]>(defaultSegments);
 
   const updateSegment = (index: number, newSegment: SegmentConfig) => {
+
+    console.log('Atualizando segmento:', newSegment);
+
     const newSegments = [...segments];
     newSegments[index] = newSegment;
     setSegments(newSegments);
@@ -16,8 +20,8 @@ export default function Home() {
   const configCode = segments
     .map(segment => {
 
-      const BACKGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_BACKGROUND="${segment.bg}"`;
-      let FOREGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_FOREGROUND="${segment.fg}"`;
+      const BACKGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_BACKGROUND=${segment.bg}`;
+      let FOREGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_FOREGROUND=${segment.fg}`;
 
       if (segment.variable.includes('VCS_')) {
         let variable = segment.variable.replace('VCS_', '');
@@ -27,8 +31,8 @@ export default function Home() {
       }
 
       if (segment.variable == 'DIR') {
-        FOREGROUND += `\ntypeset -g POWERLEVEL9K_${segment.variable}_SHORTENED_FOREGROUND="${segment.fg}"`;
-        FOREGROUND += `\ntypeset -g POWERLEVEL9K_${segment.variable}_ANCHOR_FOREGROUND="${segment.fg}"`;
+        FOREGROUND += `\ntypeset -g POWERLEVEL9K_${segment.variable}_SHORTENED_FOREGROUND=${segment.fg}`;
+        FOREGROUND += `\ntypeset -g POWERLEVEL9K_${segment.variable}_ANCHOR_FOREGROUND=${segment.fg}`;
       }
 
       return `${BACKGROUND}\n${FOREGROUND}\n`;
@@ -52,25 +56,28 @@ export default function Home() {
               <div className="flex justify-between items-center">
                 <h3 className="text-gray-200 font-semibold">{segment.name}</h3>
                 <div className="flex gap-2">
-                  <input
+                  {/* <input
                     type="color"
                     value={segment.bg}
                     onChange={(e) => updateSegment(index, { ...segment, bg: e.target.value })}
                     className="w-10 h-10 rounded bg-gray-700 text-gray-200"
                     placeholder="BG"
-                  />
+                  /> */}
 
-                  {segment.variable.includes('VCS_') ? (
-                    <select onChange={(e) => updateSegment(index, { ...segment, fg: e.target.value })}>
-                      <option value="0">Black</option>
-                      <option value="1">Coral</option>
-                      <option value="2">Olivine</option>
-                      <option value="3">Orange</option>
-                      <option value="4">Blue</option>
-                      <option value="5">Yellow</option>
-                      <option value="6">Green</option>
-                      <option value="7">Silver</option>
-                    </select>
+                  <ColorPickerModal color={segment.bg} onColorSelect={(colorHex, colorCode) => updateSegment(index, { ...segment, bg: colorCode, bgHex: colorHex })} />
+                  <ColorPickerModal color={segment.fg} onColorSelect={(colorHex, colorCode) => updateSegment(index, { ...segment, fg: colorCode, fgHex: colorHex })} />
+                  {/* {segment.variable.includes('VCS_') ? (
+                    // <select onChange={(e) => updateSegment(index, { ...segment, fg: e.target.value })}>
+                    //   <option value="0">Black</option>
+                    //   <option value="1">Coral</option>
+                    //   <option value="2">Olivine</option>
+                    //   <option value="3">Orange</option>
+                    //   <option value="4">Blue</option>
+                    //   <option value="5">Yellow</option>
+                    //   <option value="6">Green</option>
+                    //   <option value="7">Silver</option>
+                    // </select>
+                    <ColorPickerModal color={46} onColorSelect={handleColorSelect} />
                   ) : (
                     <input
                       type="color"
@@ -79,7 +86,7 @@ export default function Home() {
                       className="w-10 h-10 rounded bg-gray-700 text-gray-200"
                       placeholder="FG"
                     />
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
