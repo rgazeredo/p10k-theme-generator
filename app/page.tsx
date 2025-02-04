@@ -19,11 +19,11 @@ export default function Home() {
   const configCode = segments
     .map(segment => {
 
-      var BACKGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_BACKGROUND="${segment.bg}"`;
-      var FOREGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_FOREGROUND="${segment.fg}"`;
+      let BACKGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_BACKGROUND="${segment.bg}"`;
+      let FOREGROUND = `typeset -g POWERLEVEL9K_${segment.variable}_FOREGROUND="${segment.fg}"`;
 
       if (segment.variable.includes('VCS_')) {
-        var variable = segment.variable.replace('VCS_', '');
+        let variable = segment.variable.replace('VCS_', '');
         variable = variable.toLowerCase();
 
         FOREGROUND = `local      ${variable}='%${segment.fg}F'`;
